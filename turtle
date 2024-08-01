@@ -1,0 +1,65 @@
+import turtle
+
+def draw_square(turtle_obj, size, color):
+    turtle_obj.color(color)
+    for _ in range(4):
+        turtle_obj.forward(size)
+        turtle_obj.right(90)
+
+def draw_triangle(turtle_obj, size, color):
+    turtle_obj.color(color)
+    for _ in range(3):
+        turtle_obj.forward(size)
+        turtle_obj.right(120)
+
+def draw_circle(turtle_obj, size, color):
+    turtle_obj.color(color)
+    turtle_obj.circle(size)
+
+def clear_drawing(turtle_obj):
+    turtle_obj.clear()
+
+def main():
+
+    screen = turtle.Screen()
+    screen.title("Turtle Shapes Drawer")
+
+    shape_turtle = turtle.Turtle()
+    shape_turtle.speed(1)  
+
+    while True:
+        print("\nChoose a shape to draw:")
+        print("1. Square")
+        print("2. Triangle")
+        print("3. Circle")
+        print("4. Clear Drawing")
+        print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == "1":
+            size = int(input("Enter the size of the square: "))
+            color = input("Enter the color of the square: ")
+            clear_drawing(shape_turtle)
+            draw_square(shape_turtle, size, color)
+        elif choice == "2":
+            size = int(input("Enter the size of the triangle: "))
+            color = input("Enter the color of the triangle: ")
+            clear_drawing(shape_turtle)
+            draw_triangle(shape_turtle, size, color)
+        elif choice == "3":
+            size = int(input("Enter the size of the circle (radius): "))
+            color = input("Enter the color of the circle: ")
+            clear_drawing(shape_turtle)
+            draw_circle(shape_turtle, size, color)
+        elif choice == "4":
+            clear_drawing(shape_turtle)
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5.")
+
+    turtle.done()
+
+if __name__ == "__main__":
+    main()
